@@ -1,0 +1,16 @@
+// this applies a gradient color change to the background
+ion-content {
+    --background: linear-gradient(#ffffff, #ffffff, #ffffff, #ffffff, var(--ion-color-bic), var(--ion-color-bic), var(--ion-color-bic));
+}
+// this adjusts the global .flex-center class to change the direction to a column and justify-content to flex-start
+.flex-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    flex-direction: column;
+    height: 100%;
+}
+ion-img {
+    min-width: 360px;
+    max-height: 40%;
+}

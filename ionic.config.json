@@ -1,0 +1,7 @@
+{
+  "name": "BICFront",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

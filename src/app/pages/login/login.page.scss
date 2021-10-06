@@ -1,0 +1,18 @@
+ion-button[color="dark"]{
+    text-transform: initial;
+};
+
+ion-content {
+    --background: linear-gradient(#ffffff, #ffffff, #ffffff, #ffffff, var(--ion-color-bic), var(--ion-color-bic), var(--ion-color-bic));
+}
+.flex-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    flex-direction: column;
+    height: 100%;
+}
+ion-img {
+    min-width: 360px;
+    max-height: 40%;
+}
