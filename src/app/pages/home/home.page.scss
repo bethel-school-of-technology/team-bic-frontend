@@ -1,0 +1,35 @@
+// 
+// global toolbar styling
+// 
+ion-content {
+    --background: var(--ion-color-bic);
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    object-fit: cover;
+    object-position: 40% 0%;
+    width: 100%;
+    height: 46px;
+}
+ion-avatar{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+// 
+// home page styling
+// 
+.flex-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    flex-direction: column;
+    height: 100%;
+}
+
+ion-card {
+    width:80%;
+}
