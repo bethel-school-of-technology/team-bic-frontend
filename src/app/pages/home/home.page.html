@@ -1,26 +1,30 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
+    <!-- menu button -->
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
+    <!-- banner -->
     <img id="banner" src="../../assets/img/fight-on.jpg">
-    <ion-avatar slot="end">
-      <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
-    </ion-avatar>
+    <!-- avatar button -->
+    <ion-button slot="end" shape="circle" fill="clear" color="bic">
+      <ion-avatar>
+        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
+      </ion-avatar>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="flex-center">
+    <!-- !!needs proper routing and relationships!! -->
     <ion-card size="full">
       <ion-card-header>
         <ion-item>
           <ion-thumbnail slot="start">
             <img src="../../assets/img/chest.png">
           </ion-thumbnail>
-          <!-- <ion-label color="bic"> -->
             <ion-card-title>Chest 1</ion-card-title>
-          <!-- </ion-label> -->
         </ion-item>
         <ion-card-subtitle>Chest-Hypertrophic-Barbell/Dumbbell</ion-card-subtitle>
       </ion-card-header>
@@ -35,15 +39,15 @@
           <ion-thumbnail slot="start">
             <img src="../../assets/img/arms.png">
           </ion-thumbnail>
-          <!-- <ion-label color="bic"> -->
             <ion-card-title>Bicep 1</ion-card-title>
-          <!-- </ion-label> -->
         </ion-item>
         <ion-card-subtitle>Bicep-Power-Barbell/Dumbbell</ion-card-subtitle>
       </ion-card-header>
+
       <ion-card-content>
         
       </ion-card-content>
     </ion-card>
   </div>
+
 </ion-content>

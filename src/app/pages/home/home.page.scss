@@ -19,6 +19,12 @@ ion-avatar{
     justify-content: center;
     align-items: center;
 }
+ion-button[shape=circle] {
+    --border-radius: 50%;
+    width: 36px;
+    height: 40px;
+}
+
 // 
 // home page styling
 // 
