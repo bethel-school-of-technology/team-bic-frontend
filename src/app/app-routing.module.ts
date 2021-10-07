@@ -26,6 +26,22 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'workouts',
+    loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
+  },
+  {
+    path: 'create-routine',
+    loadChildren: () => import('./pages/create-routine/create-routine.module').then( m => m.CreateRoutinePageModule)
+  },
+  {
+    path: 'view-routine',
+    loadChildren: () => import('./pages/view-routine/view-routine.module').then( m => m.ViewRoutinePageModule)
+  },
+  {
+    path: 'edit-routine',
+    loadChildren: () => import('./pages/edit-routine/edit-routine.module').then( m => m.EditRoutinePageModule)
   }
 ];
 
