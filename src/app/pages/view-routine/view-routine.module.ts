@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ViewRoutinePageRoutingModule } from './view-routine-routing.module';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { ViewRoutinePage } from './view-routine.page';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ViewRoutinePage } from './view-routine.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewRoutinePageRoutingModule
+    ViewRoutinePageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [ViewRoutinePage]
 })
