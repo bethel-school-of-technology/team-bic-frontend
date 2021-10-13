@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomePage implements OnInit {
 
   constructor() { }
-
+// check out lifecycle hooks because ngOnInit may not work
   ngOnInit() {
   }
 

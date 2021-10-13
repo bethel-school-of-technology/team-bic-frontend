@@ -1,0 +1,55 @@
+{
+    "workouts": [
+        {
+            "name": "Chest",
+            "children": [
+                {
+                    "name": "Bench Press"
+                },
+                {
+                    "name": "Incline Bench Press"
+                },
+                {
+                    "name": "Dumbbell Squeeze Press"
+                },
+                {
+                    "name": "Flys"
+                }
+            ]
+        },
+        {
+            "name": "Tricep",
+            "children": [
+                {
+                    "name": "Bench Dips"
+                },
+                {
+                    "name": "Skullcrushers"
+                },
+                {
+                    "name": "Standing Tricep Extensions"
+                },
+                {
+                    "name": "Rope Pulldowns"
+                }
+            ]
+        },
+        {
+            "name": "Bicep",
+            "children": [
+                {
+                    "name": "Dumbbell Curls"
+                },
+                {
+                    "name": "Hammer Curls"
+                },
+                {
+                    "name": "Zottman Curls"
+                },
+                {
+                    "name": "Concentration Curls"
+                }
+            ]
+        }
+    ]
+}
