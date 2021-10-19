@@ -1,0 +1,38 @@
+ion-content {
+    --background: #bf374e;
+}
+ion-footer.ion-no-border {
+    background: #bf374e !important; 
+
+}
+ion-header {
+    display: flex;
+    justify-content: center;
+    background: #bf374e !important; 
+
+    .icon {
+        color: #ffff;
+        font-size: 35px;
+       }
+}
+ion-segment {
+    --background: #ffff;
+    border-radius: 16px;
+  }
+.segment-label{
+    color: #ffff;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+ion-item{
+    margin: 8px;
+    border-radius:10px;
+}
+form ion-label{
+    font-size: 18px;
+    font-weight: 10px;
+}
+ion-item.item-has-focus > ion-label{
+    
+    color: var(--ion-color-bic) !important;
+}

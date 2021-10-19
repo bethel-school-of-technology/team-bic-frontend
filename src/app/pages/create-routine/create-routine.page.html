@@ -21,14 +21,12 @@
     <ion-grid>
       <ion-row>
         <ion-col size="8" offset="2">
-          <ion-button expand="block" color="light" fill="solid" size="small">+ Add Workout</ion-button>
+          <ion-button class="workout-add" expand="block" color="light" fill="solid" size="small">+ Add Workout</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-<!-- Need to create a housing div for added workouts that will infinitely scroll -->
   <div>
-    <!-- ** edit card to be proper shape -->
     <ion-card size="full">
       <ion-card-content>
         <ion-list>       
@@ -62,5 +60,6 @@
 </ion-content>
 <!-- ** create modal for more options -->
 <ion-footer class="ion-no-border" slot="fixed">
-    <ion-button color="light" fill="outline" class="footer-btn" expand="block" size="small">Create Routine</ion-button>
+    <ion-button color="light" fill="outline" class="footer-btn" expand="block" size="small" (click)="initModal()">Create Routine</ion-button>
+    
 </ion-footer>

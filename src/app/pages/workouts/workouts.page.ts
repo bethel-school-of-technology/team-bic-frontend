@@ -14,8 +14,6 @@ export class WorkoutsPage implements OnInit {
   constructor(private http: HttpClient) {
     this.http.get('assets/bic.json').subscribe(res => {
       this.bic = res['workouts'];
-
-      this.bic[0].open = true;
     });
    }
 

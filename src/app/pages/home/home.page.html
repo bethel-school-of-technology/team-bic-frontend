@@ -8,7 +8,7 @@
     <!-- banner -->
     <img id="banner" src="../../assets/img/fight-on.png">
     <!-- avatar button add ion-popover -->
-    <ion-button slot="end" shape="circle" fill="clear" color="bic">
+    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
       <ion-avatar>
         <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
       </ion-avatar>
@@ -19,7 +19,7 @@
 <ion-content>
   <div class="flex-center">
     <!-- !!needs proper routing and relationships!! -->
-    <ion-card size="full">
+    <ion-card size="full" (click)="onClickCard(1)" [class.active]="selectedCard == 1">
       <ion-card-header>
         <ion-item>
           <ion-thumbnail slot="start">

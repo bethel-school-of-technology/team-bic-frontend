@@ -43,7 +43,7 @@ ion-content {
     justify-content: center;
     margin: 0px;
     object-fit: cover;
-    object-position: 40% 0%;
+    object-position: 46% 0%;
     width: 100%;
     height: 46px;
 }
@@ -64,4 +64,18 @@ ion-header {
 }
 ion-toolbar {
     height: 100%;
+}
+
+ion-modal.routine-settings {
+    .modal-wrapper {
+        --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+    position: absolute;
+    top: 40%;
+    height: 60%;
+   padding: 25% 15%  !important;
+   display: block;
+   border-radius: 20px 20px 0 0;
+    }
+    
 }
