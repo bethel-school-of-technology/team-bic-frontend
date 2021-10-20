@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core'
+import { Observable } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 @Component({
   selector: 'app-root',
@@ -12,10 +14,17 @@ export class AppComponent {
     { title: 'Create Routine', url: '/c-routine', icon: 'hammer' },
     { title: 'Workouts', url: '/workout-list', icon: 'barbell' },
   ];
+
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   logout() {
     this.authService.doLogout()
+  }
+  isLoginRoute() {
+    return this.router.url.includes("/login");
+  }
+  isRegisterRoute() {
+    return this.router.url.includes("/register");
   }
 }

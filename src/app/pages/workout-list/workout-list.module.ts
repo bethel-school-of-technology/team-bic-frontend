@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { WorkoutListPageRoutingModule } from './workout-list-routing.module';
 
 import { WorkoutListPage } from './workout-list.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderByModule } from 'src/app/shared/orderBy/order-by.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkoutListPageRoutingModule
+    WorkoutListPageRoutingModule,
+    Ng2SearchPipeModule,
+    OrderByModule
   ],
   declarations: [WorkoutListPage]
 })

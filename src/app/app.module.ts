@@ -12,12 +12,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderByModule } from './shared/orderBy/order-by.module';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ReactiveFormsModule, FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, TranslateModule.forRoot({
+  imports: [ReactiveFormsModule, FormsModule, BrowserModule, IonicModule.forRoot(), OrderByModule.forRoot(), AppRoutingModule, HttpClientModule, TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),

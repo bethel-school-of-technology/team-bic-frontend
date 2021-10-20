@@ -10,6 +10,7 @@ export class WorkoutServiceService {
 
   baseUrl = 'http://localhost:3000/bic/';
   selectedWorkouts: Workout[] = [];
+  
 
   constructor(private http: HttpClient) { }
   

@@ -32,5 +32,6 @@ export class LoginPage implements OnInit {
 
   loginUser() {
     this.authService.signIn(this.signinForm.value);
+    this.router.navigateByUrl('/home', { replaceUrl: true });
   }
 }

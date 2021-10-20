@@ -1,23 +1,8 @@
-<!-- toolbar -->
-<ion-header>
-  <ion-toolbar>
-    <!-- menu button -->
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <!-- banner -->
-    <img id="banner" src="../../assets/img/fight-on.png">
-    <!-- avatar button add ion-popover -->
-    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
-      <ion-avatar>
-        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
-      </ion-avatar>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="flex-center">
+<ion-header></ion-header>
+
+<ion-content scrollEvents="true">
+  <div>
     <!-- !!needs proper routing and relationships!! -->
     <ion-card size="full" (click)="onClickCard(1)" [class.active]="selectedCard == 1">
       <ion-card-header>
@@ -34,21 +19,15 @@
       </ion-card-content>
     </ion-card>
 
-     <ion-card>
+    <ion-card *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
       <ion-card-header>
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="../../assets/img/arms.png">
-          </ion-thumbnail>
-            <ion-card-title>Bicep 1</ion-card-title>
-        </ion-item>
-        <ion-card-subtitle>Bicep-Power-Barbell/Dumbbell</ion-card-subtitle>
+        <ion-card-title> {{ i }}</ion-card-title>
       </ion-card-header>
-
       <ion-card-content>
-        
+        OY OY OY
       </ion-card-content>
     </ion-card>
+     
   </div>
 
 </ion-content>

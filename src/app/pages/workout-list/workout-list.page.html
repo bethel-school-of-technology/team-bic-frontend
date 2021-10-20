@@ -17,24 +17,22 @@
 
 <ion-content fullscreen="true">
   <div>
-    <ion-list *ngFor="let workout of bic; let i = index;" class="accordion-list">
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <ion-list class="accordion-list">
       <ion-card size="full" >
         <ion-card-header> 
-
-          <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': workout.open}">            
-            <ion-card-title> {{ workout.name }}</ion-card-title>
-            <ion-icon slot="end" color="bic" name="reorder-two-outline" *ngIf="!workout.open"></ion-icon>
-            <ion-icon slot="end" color="bic" name="chevron-down-outline" *ngIf="workout.open"></ion-icon>
-          </ion-item>      
-
+          <ion-item class="workout-title">            
+            <ion-card-title> Workouts</ion-card-title>
+            <a slot="end"><ion-icon name="close-outline" size="large" color="bic" *ngIf="checkedItems.length > 0" (click)="uncheckAll()"></ion-icon></a>
+          </ion-item>
         </ion-card-header>
-
-        <ion-card-content *ngIf="workout.children && workout.open">
-          <ion-list *ngFor="let child of workout.children; let c = index;" class="child-list">
+         <ion-card-content>
+          <ion-list *ngFor="let workout of bic | filter:filterTerm | orderBy:'asc':'muscle'; let i = index;" class="workout-list" >
       
             <ion-item>
-              <ion-label>{{child.name}}</ion-label>
-              <ion-checkbox slot="end" color="bic" (ionChange)="onChange(child)"></ion-checkbox>
+              <ion-label>{{workout.name}}</ion-label>
+              <ion-note>{{workout.muscle}}</ion-note>
+              <ion-checkbox slot="end" color="bic" [(ngModel)]="workout.isSelected" (ionChange)="onChange(workout)"></ion-checkbox>
             </ion-item>
       
           </ion-list>

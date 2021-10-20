@@ -2,63 +2,103 @@
     "workouts": [
         {
             "name": "Bench Press",
-            "children": [
-                {
-                    "name": "Bench Press"
-                },
-                {
-                    "name": "Incline Bench Press"
-                },
-                {
-                    "name": "Dumbbell Squeeze Press"
-                },
-                {
-                    "name": "Flys"
-                }
-            ]
+            "muscle": "chest"
         },
         {
-            "name": "Tricep",
-            "children": [
-                {
-                    "name": "Bench Dips"
-                },
-                {
-                    "name": "Skullcrushers"
-                },
-                {
-                    "name": "Standing Tricep Extensions"
-                },
-                {
-                    "name": "Rope Pulldowns"
-                }
-            ]
+            "name": "Incline Bench Press",
+            "muscle": "chest"
         },
         {
-            "name": "Bicep",
-            "children": [
-                {
-                    "name": "Dumbbell Curls"
-                },
-                {
-                    "name": "Hammer Curls"
-                },
-                {
-                    "name": "Zottman Curls"
-                },
-                {
-                    "name": "Concentration Curls"
-                }
-            ]
+            "name": "Dumbbell Squeeze Press",
+            "muscle": "chest"
+        },
+        {
+            "name": "Flys",
+            "muscle": "chest"
+        },    
+        {
+            "name": "Bench Dips",
+            "muscle": "tricep"
+        },
+        {
+            "name": "Skullcrushers",
+            "muscle": "tricep"
+        },
+        {
+            "name": "Tricep Extensions",
+            "muscle": "tricep"
+        },
+        {
+            "name": "Rope Pulldowns",
+            "muscle": "tricep"
+        },
+        {
+            "name": "Dumbbell Curls",
+            "muscle": "bicep"
+        },
+        {
+            "name": "Hammer Curls",
+            "muscle": "bicep" 
+        },
+        {
+            "name": "Zottman Curls",
+            "muscle": "bicep" 
+        },
+        {
+            "name": "Concentration Curls",
+            "muscle": "bicep" 
+        },
+        {
+            "name": "Military Press",
+            "muscle": "shoulder"
+        },
+        {
+            "name": "Shrugs",
+            "muscle": "shoulder"
+        },
+        {
+            "name": "Kettlebell Swings",
+            "muscle": "leg"
+        },
+        {
+            "name": "Squats",
+            "muscle": "leg"
+        },
+        {
+            "name": "Jump Squats",
+            "muscle": "leg"
+        },
+        {
+            "name": "Calf Raises",
+            "muscle": "leg"
+        },
+        {
+            "name": "Standing Tripod Rows",
+            "muscle": "back"
+        },
+        {
+            "name": "Plank Marches",
+            "muscle": "abs"
+        },
+        {
+            "name": "Figure 8's",
+            "muscle": "abs"
+        },
+        {
+            "name": "Flutter Kicks",
+            "muscle": "abs"
         }
     ],
     "routines": [
         {
             "name": "Light Chest",
             "subtitle": "Chest-Hypertrophic-Barbell/Dumbbell",
-            "img":"/img/chest.png"
-
-            
+            "musclegroup":"chest"
+        },
+        {
+            "name": "Heavy Arms",
+            "subtitle": "Bicep/Tricep-Hypertrophic-Barbell/Dumbbell",
+            "musclegroup":"arms"
         }
 
     ]
