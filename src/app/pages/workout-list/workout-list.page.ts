@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Workout } from 'src/app/models/workout';
 import { WorkoutServiceService } from 'src/app/services/workout-service.service';
 
@@ -18,7 +19,7 @@ export class WorkoutListPage implements OnInit {
   filterTerm: string;
   masterCheck:boolean;
 
-  constructor(private http: HttpClient, private workoutService: WorkoutServiceService) {
+  constructor(private http: HttpClient, private workoutService: WorkoutServiceService, public router: Router) {
     this.http.get('assets/bic.json').subscribe(res => {
       this.bic = res['workouts'];
     });
@@ -34,15 +35,16 @@ export class WorkoutListPage implements OnInit {
     console.log(this.checkedItems);
   }
   createRoutine() {
-    this.workoutService.selectedWorkouts = this.checkedItems;
+    this.workoutService.sendWorkout(this.checkedItems);
+    this.router.navigateByUrl('/c-routine', { replaceUrl: true });
     console.log(this.checkedItems);
     console.log(this.workoutService.selectedWorkouts);
   }
   uncheckAll(){
     this.bic.forEach(node => node.isSelected = false);
     console.log(this.checkedItems);
-
   }
+
   ngOnInit() {
   }
 }

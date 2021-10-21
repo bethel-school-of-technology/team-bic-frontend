@@ -8,7 +8,7 @@ import { WorkoutListPageRoutingModule } from './workout-list-routing.module';
 
 import { WorkoutListPage } from './workout-list.page';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { OrderByModule } from 'src/app/shared/orderBy/order-by.module';
+import { OrderByModule } from 'src/app/shared/order-by.module';
 
 @NgModule({
   imports: [

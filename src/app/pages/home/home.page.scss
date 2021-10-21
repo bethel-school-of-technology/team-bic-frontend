@@ -1,19 +1,10 @@
 
-
-// 
-// home page styling
-// 
-// .flex-center {
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items:center;
-//     flex-direction: column;
-//     height: 100%;
-// }
-
 ion-card {
-    width:80%;
+    border-radius: 18px;
 }
 ion-card.active {
     box-shadow: 0px 2px 10px #bf374e !important;
     }
+ion-list{
+    background: var(--ion-color-bic);
+ }

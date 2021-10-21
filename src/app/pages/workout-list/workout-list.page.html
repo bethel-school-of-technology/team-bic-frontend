@@ -27,7 +27,7 @@
           </ion-item>
         </ion-card-header>
          <ion-card-content>
-          <ion-list *ngFor="let workout of bic | filter:filterTerm | orderBy:'asc':'muscle'; let i = index;" class="workout-list" >
+          <ion-list *ngFor="let workout of bic | filter:filterTerm | orderBy:'asc':'muscle';" class="workout-list" >
       
             <ion-item>
               <ion-label>{{workout.name}}</ion-label>
@@ -42,5 +42,5 @@
   </div>
 </ion-content>
 <ion-footer class="ion-no-border" slot="fixed">
-  <ion-button color="bic" class="footer-btn" expand="block" size="small" *ngIf="checkedItems.length > 0" (click)="createRoutine()">Create Routine w/ Selected</ion-button>
+  <ion-button color="bic" class="footer-btn" expand="block" size="small" *ngIf="checkedItems.length > 0" (click)="createRoutine()">+ Add Selected to Routine</ion-button>
 </ion-footer>

@@ -1,6 +1,6 @@
 export class Routine {
     id:number;
     name:string;
-    subtitle:string;
+    detail:string;
     musclegroup: string;
 }

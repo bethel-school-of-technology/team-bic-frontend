@@ -12,7 +12,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OrderByModule } from './shared/orderBy/order-by.module';
+import { OrderByModule } from './shared/order-by.module';
+import { WorkoutServiceService } from './services/workout-service.service';
 
 
 @NgModule({

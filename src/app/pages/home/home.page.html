@@ -3,31 +3,21 @@
 
 <ion-content scrollEvents="true">
   <div>
-    <!-- !!needs proper routing and relationships!! -->
-    <ion-card size="full" (click)="onClickCard(1)" [class.active]="selectedCard == 1">
-      <ion-card-header>
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="../../assets/img/chest.png">
-          </ion-thumbnail>
-            <ion-card-title>Chest 1</ion-card-title>
-        </ion-item>
-        <ion-card-subtitle>Chest-Hypertrophic-Barbell/Dumbbell</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-      <ion-card-header>
-        <ion-card-title> {{ i }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        OY OY OY
-      </ion-card-content>
-    </ion-card>
-     
+    <ion-list class="routine-list">
+      <ion-card *ngFor="let routine of bic" size="full" (click)="onClickCard(1)" [class.active]="selectedCard == 1">
+        <ion-card-header>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="../../assets/img/chest.png">
+            </ion-thumbnail>
+              <ion-card-title>{{routine.name}}</ion-card-title>
+          </ion-item>
+          <ion-card-subtitle>{{routine.detail}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
   </div>
 
 </ion-content>

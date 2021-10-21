@@ -1,27 +1,13 @@
-<!-- toolbar -->
-<ion-header>
-  <ion-toolbar>
-    <!-- menu button -->
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <!-- banner -->
-    <img id="banner" src="../../assets/img/fight-on.png">
-    <!-- avatar button add ion-popover -->
-    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
-      <ion-avatar>
-        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
-      </ion-avatar>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-
+<ion-header></ion-header>
 <ion-content fullscreen="true">
+  <div>
+    <ion-button (click)="consoleArray()">console array</ion-button>
+  </div>
   <div>
     <ion-grid>
       <ion-row>
         <ion-col size="8" offset="2">
-          <ion-button class="workout-add" expand="block" color="light" fill="solid" size="small">+ Add Workout</ion-button>
+          <ion-button class="workout-add" expand="block" color="light" fill="solid" size="small" [routerLink]="['/workout-list']">+ Add Workout</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -29,27 +15,18 @@
   <div>
     <ion-card size="full">
       <ion-card-content>
-        <ion-list>       
+        <ion-list *ngFor="let workout of routineWorkouts">       
           <ion-item>
-            <ion-label>Dumbbell Curls</ion-label>
+            <ion-label>{{ workout.name }}</ion-label>
             
           </ion-item>
           <ion-item class="selector">
-            <ion-select placeholder="Sets">
-              <ion-select-option value="sets1">1 set</ion-select-option>
-              <ion-select-option value="sets2">2 sets</ion-select-option>
-              <ion-select-option value="sets3">3 sets</ion-select-option>
-              <ion-select-option value="sets4">4 sets</ion-select-option>
+            <ion-select required placeholder="Sets" [(ngModel)]="selectedSet" (ionChange)="compareWith()">
+              <ion-select-option *ngFor="let set of sets" [value]="set">{{set}} sets</ion-select-option>
             </ion-select>
-            <ion-select slot="end" placeholder="Reps">
-              <ion-select-option value="reps4">4 reps</ion-select-option>
-              <ion-select-option value="reps6">6 reps</ion-select-option>
-              <ion-select-option value="reps8">8 reps</ion-select-option>
-              <ion-select-option value="reps10">10 reps</ion-select-option>
-              <ion-select-option value="reps12">12 reps</ion-select-option>
-              <ion-select-option value="reps16">16 reps</ion-select-option>
-              <ion-select-option value="reps20">20 reps</ion-select-option>
-            </ion-select>               
+            <ion-select required slot="end" placeholder="Reps">
+              <ion-select-option *ngFor="let rep of reps" [value]="rep">{{rep}} reps</ion-select-option>
+            </ion-select>
           </ion-item>
           
         </ion-list>
