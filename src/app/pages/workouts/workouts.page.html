@@ -1,0 +1,50 @@
+<!-- toolbar -->
+<ion-header>
+  <ion-toolbar>
+    <!-- menu button -->
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <!-- banner -->
+    <img id="banner" src="../../assets/img/fight-on.png">
+    <!-- avatar button add ion-popover -->
+    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
+      <ion-avatar>
+        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div>
+    <ion-list *ngFor="let workout of bic; let i = index;" class="accordion-list">
+      <ion-card size="full" >
+        <ion-card-header> 
+
+          <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': workout.open}">            
+            <ion-card-title> {{ workout.name }}</ion-card-title>
+            <ion-icon slot="end" color="bic" name="reorder-two-outline" *ngIf="!workout.open"></ion-icon>
+            <ion-icon slot="end" color="bic" name="chevron-down-outline" *ngIf="workout.open"></ion-icon>
+          </ion-item>      
+
+        </ion-card-header>
+
+        <ion-card-content *ngIf="workout.children && workout.open">
+          <ion-list *ngFor="let child of workout.children; let c = index;" class="child-list">
+      
+            <ion-item>
+              <ion-label>{{child.name}}</ion-label>
+              <ion-checkbox slot="end" color="bic"></ion-checkbox>
+            </ion-item>
+      
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+  
+</ion-content>
+<ion-footer class="ion-no-border" slot="fixed">
+    <ion-button color="bic" class="footer-btn" expand="block" size="small">+ Add Selected </ion-button>
+</ion-footer>

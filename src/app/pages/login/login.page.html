@@ -5,16 +5,18 @@
     <ion-card>
 
       <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <ion-button color="bic" size="block">Login</ion-button>
-        <ion-button fill="outline" color="bic" size="block">Register</ion-button>
+        <form class="form-signin" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+          <ion-item class="form-group">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" class="form-control" formControlName="email" required></ion-input>
+          </ion-item>
+          <ion-item class="form-group">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" class="form-control" formControlName="password" required></ion-input>
+          </ion-item>
+          <ion-button color="bic" size="block" type="submit">Login</ion-button> 
+        </form>
+        <ion-button fill="outline" color="bic" size="block" [routerLink]="['/register']" >Register</ion-button>
         <ion-button color="dark" fill="clear" size="full">Forgot email/password?</ion-button>
       </ion-card-content>
     </ion-card>

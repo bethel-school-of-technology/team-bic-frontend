@@ -1,0 +1,79 @@
+<!-- toolbar -->
+<ion-header>
+  <ion-toolbar>
+    <!-- menu button -->
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <!-- banner -->
+    <img id="banner" src="../../assets/img/fight-on.png">
+    <!-- avatar button add ion-popover -->
+    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
+      <ion-avatar>
+        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="stopwatch">
+    <ion-grid>
+      <!-- timer -->
+      <ion-row class="timer-btn">
+        <ion-col size="10" offset="1" *ngIf="!running ">
+          <ion-button (click)="start()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'start timer' | translate }}</ion-button>
+        </ion-col>
+        <ion-col size="10" offset="1" *ngIf="running">
+          <ion-button (click)="stop()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'stop timer' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="edit-btn" size="2">
+          <ion-button class="wrench" shape="circle" fill="clear" color="dark" icon-only>
+            <ion-avatar>
+              <ion-icon name="build-outline" size="large"></ion-icon>
+            </ion-avatar>
+          </ion-button>
+        </ion-col>
+        <ion-col size="7">
+          <h1 class="timer">
+            {{time}}
+          </h1>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="reset()" color="light" fill="outline" class="reset-btn" expand="block" size="small">{{ 'reset' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+      <!-- start/stop timer button -->
+
+
+    </ion-grid>
+   
+  </div>
+<!-- Need to create a housing div for added workouts that will infinitely scroll -->
+  <div>
+    <!-- ** edit card to be proper shape -->
+    <ion-card size="full">
+      <ion-card-header>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="../../assets/img/chest.png">
+          </ion-thumbnail>
+            <ion-card-title>Chest 1</ion-card-title>
+        </ion-item>
+        <ion-card-subtitle>Chest-Hypertrophic-Barbell/Dumbbell</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+  <ion-infinite-scroll threshold="150px">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,19 @@
+.accordion-list {
+    background-color: var(--ion-color-bic);
+}
+.section-active {
+    border:2px solid var(--ion-color-bic);
+    border-radius: 25px;
+}
+ion-button.footer-btn{
+    border:2px solid white;
+    border-radius: 10px;
+    --border-radius: 10px;
+}
+.workout-title{
+    border:2px solid var(--ion-color-bic);
+    border-radius: 20px;
+}
+ion-card{
+    border-radius: 15px;
+}
