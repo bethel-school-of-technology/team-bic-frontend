@@ -4,15 +4,21 @@
 <ion-content scrollEvents="true">
   <div>
     <ion-list class="routine-list">
-      <ion-card *ngFor="let routine of bic" size="full" (click)="onClickCard(1)" [class.active]="selectedCard == 1">
+      <ion-card *ngFor="let routine of routineList" size="full"  [class.active]="selectedCard == 1">
         <ion-card-header>
           <ion-item>
-            <ion-thumbnail slot="start">
-              <img src="../../assets/img/chest.png">
+            <ion-thumbnail slot="start" (click)="onClickCard(routine.id)">
+              <img *ngIf="routine.musclegroup === 'chest'" src="../../assets/img/chest.png">
+              <img *ngIf="routine.musclegroup === 'arms'" src="../../assets/img/arms.png">
+              <img *ngIf="routine.musclegroup === 'abs'" src="../../assets/img/abs.png">
+              <img *ngIf="routine.musclegroup === 'shoulders'" src="../../assets/img/shoulders.png">
+              <img *ngIf="routine.musclegroup === 'back'" src="../../assets/img/back.png">
+              <img *ngIf="routine.musclegroup === 'legs'" src="../../assets/img/leg.png">
             </ion-thumbnail>
-              <ion-card-title>{{routine.name}}</ion-card-title>
+              <ion-card-title (click)="onClickCard(routine.id)">{{routine.name}}</ion-card-title>
+              <a slot="end"><ion-icon name="close-outline" size="large" color="bic" (click)="deleteAlert(routine.id)"></ion-icon></a>
           </ion-item>
-          <ion-card-subtitle>{{routine.detail}}</ion-card-subtitle>
+          <ion-card-subtitle (click)="onClickCard(routine.id)">{{routine.detail}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
         </ion-card-content>

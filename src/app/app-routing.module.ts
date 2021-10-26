@@ -33,11 +33,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/create-routine/create-routine.module').then( m => m.CreateRoutinePageModule)
   },
   {
-    path: 'v-routine',
+    path: 'v-routine/:routineId',
     loadChildren: () => import('./pages/view-routine/view-routine.module').then( m => m.ViewRoutinePageModule)
   },
   {
-    path: 'e-routine',
+    path: 'e-routine/:routineId',
     loadChildren: () => import('./pages/edit-routine/edit-routine.module').then( m => m.EditRoutinePageModule)
   },
   {

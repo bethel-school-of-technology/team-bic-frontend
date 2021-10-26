@@ -14,17 +14,25 @@
   </div>
   <div>
     <ion-card size="full">
+      <ion-card-header class="no-list" *ngIf="routineWorkouts.length === 0">
+        <ion-icon name="barbell-outline"></ion-icon>
+        <h2>Add Workouts to Begin</h2>
+        <ion-icon name="barbell-outline"></ion-icon>
+      </ion-card-header>
+      <ion-card-header *ngIf="routineWorkouts.length > 0">
+        <a><ion-icon name="close-outline" size="large" color="bic" (click)="uncheckAll()"></ion-icon></a>
+      </ion-card-header>
       <ion-card-content>
-        <ion-list *ngFor="let workout of routineWorkouts">       
+        <ion-list *ngFor="let workout of routineWorkouts; let i = index; trackBy: trackByFn">       
           <ion-item>
             <ion-label>{{ workout.name }}</ion-label>
             
           </ion-item>
           <ion-item class="selector">
-            <ion-select required placeholder="Sets" [(ngModel)]="selectedSet" (ionChange)="compareWith()">
-              <ion-select-option *ngFor="let set of sets" [value]="set">{{set}} sets</ion-select-option>
+            <ion-select required placeholder="Sets" [(ngModel)]="routineWorkouts[i].sets">
+              <ion-select-option *ngFor="let set of sets"  [value]="set">{{set}} sets</ion-select-option>
             </ion-select>
-            <ion-select required slot="end" placeholder="Reps">
+            <ion-select required slot="end" placeholder="Reps" [(ngModel)]="routineWorkouts[i].reps">
               <ion-select-option *ngFor="let rep of reps" [value]="rep">{{rep}} reps</ion-select-option>
             </ion-select>
           </ion-item>
@@ -35,7 +43,6 @@
 
   </div>
 </ion-content>
-<!-- ** create modal for more options -->
 <ion-footer class="ion-no-border" slot="fixed">
     <ion-button color="light" fill="outline" class="footer-btn" expand="block" size="small" (click)="initModal()">Create Routine</ion-button>
     

@@ -11,3 +11,12 @@
 ion-list{
     border-radius: 20px;
 }
+.no-list{
+    color:var(--ion-color-bic);
+    display: flex;
+    justify-content: center;
+    ion-icon{
+        color: gray;
+        font-size: 24px;
+    }
+}

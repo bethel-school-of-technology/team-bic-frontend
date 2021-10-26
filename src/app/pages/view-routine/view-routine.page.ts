@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage'
+import { Routine } from 'src/app/models/routine';
+import { RoutineServiceService } from 'src/app/services/routine-service.service';
 
 
 
@@ -10,6 +13,24 @@ import { Storage } from '@ionic/storage'
 })
 export class ViewRoutinePage implements OnInit {
 
+  currentRoutine: Routine = new Routine();
+  routineId: number;
+
+  constructor(private actRoute: ActivatedRoute, private routineService: RoutineServiceService, private router: Router) {}
+
+  ngOnInit() {
+  }
+  
+  ionViewWillEnter(){
+    this.routineId = parseInt(this.actRoute.snapshot.paramMap.get("routineId"));
+    this.routineService.getRoutine(this.routineId).subscribe(response =>{
+      this.currentRoutine = response;
+    })
+  }
+  navigate(){
+  this.router.navigate(["/e-routine" + "/" + this.currentRoutine.id]);
+  }
+  // timer
   public timeBegan = null
   public timeStopped:any = null
   public stoppedDuration:any = 0
@@ -63,9 +84,4 @@ export class ViewRoutinePage implements OnInit {
       this.zeroPrefix(sec, 2) + "." +
       this.zeroPrefix(ms, 3);
     };
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

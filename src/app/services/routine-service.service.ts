@@ -14,20 +14,19 @@ export class RoutineServiceService {
   
   getRoutineList(): Observable<Routine[]> {
     return this.http.get<Routine[]>(this.baseUrl);
-}
-getRoutine(Id: number):  Observable<Routine> {
-  return this.http.get<Routine>(this.baseUrl + Id)
-};
-createRoutine(routine: Routine) {
-  return this.http.post(this.baseUrl, routine);
-}
-updateRoutine(routine: Routine) {
-  const url = this.baseUrl + routine.id;
-  return this.http.put(url, routine);
-}
-deleteRoutine(id: number) {
-  const url = this.baseUrl + id;
-  return this.http.delete(url);
-
-}
+  };
+  getRoutine(Id: number):  Observable<Routine> {
+    return this.http.get<Routine>(this.baseUrl + Id)
+  };
+  createRoutine(newRoutine: Routine) {
+    return this.http.post(this.baseUrl, newRoutine);
+  };
+  updateRoutine(routine: Routine) {
+    const url = this.baseUrl + routine.id;
+    return this.http.put(url, routine);
+  };
+  deleteRoutine(id: number) {
+    const url = this.baseUrl + id;
+    return this.http.delete(url);
+  };
 }

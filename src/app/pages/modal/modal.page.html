@@ -4,17 +4,17 @@
   </a>
 </ion-header>
 
+
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col class="segment-label" size="6" offset="3">
         Select Muscle Group
       </ion-col>
-      
     </ion-row>
     <ion-row>
       <ion-col text-center>
-        <ion-segment scrollable value="abs" (ionChange)="segmentChanged($event)" color="bic">
+        <ion-segment scrollable value="abs" (ionChange)="segmentChanged($event)" type="" color="bic" name="muscle" [(ngModel)]="newRoutine.musclegroup">
           <ion-segment-button value="abs">
             <ion-icon src="../../assets/custom-ion-icons/abs.svg" class="segment-icon"></ion-icon>
             <ion-label>Abs</ion-label>
@@ -43,19 +43,16 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <form class="routine-detail" [formGroup]="routineDetails" (ngSubmit)="createTitle()">
+ 
     <ion-item class="form-group">
       <ion-label position="floating">Routine Name:</ion-label>
-      <ion-input type="text" class="form-control" formControlName="title" required></ion-input>
+      <ion-input type="text" class="form-control" name="name" [(ngModel)]="newRoutine.name" required></ion-input>
     </ion-item>
     <ion-item class="form-group">
       <ion-label position="floating">Routine Description:</ion-label>
-      <ion-input type="text" class="form-control" formControlName="details" required></ion-input>
-      <ion-textarea rows="2" cols="12" maxlength="214"></ion-textarea>
+      <ion-textarea rows="2" cols="12" maxlength="214" type="text" class="form-control" name="detail" [(ngModel)]="newRoutine.detail" required></ion-textarea>
     </ion-item>
-  </form>
-</ion-content>
-<ion-footer class="ion-no-border" slot="fixed">
-  <ion-button color="light" fill="outline" class="footer-btn" expand="block" size="small" (click)="close()">Finalize</ion-button>
+    <ion-button color="light" fill="outline" class="footer-btn" expand="block" size="small" (click)="createRoutine()">Finalize</ion-button>
   
-</ion-footer>
+</ion-content>
+

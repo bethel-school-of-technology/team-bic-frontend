@@ -27,7 +27,7 @@
           </ion-item>
         </ion-card-header>
          <ion-card-content>
-          <ion-list *ngFor="let workout of bic | filter:filterTerm | orderBy:'asc':'muscle';" class="workout-list" >
+          <ion-list *ngFor="let workout of workoutList | filter:filterTerm | orderBy:'asc':'muscle';" class="workout-list" >
       
             <ion-item>
               <ion-label>{{workout.name}}</ion-label>

@@ -1,42 +1,15 @@
-<!-- toolbar -->
-<ion-header>
-  <ion-toolbar>
-    <!-- menu button -->
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <!-- banner -->
-    <img id="banner" src="../../assets/img/fight-on.png">
-    <!-- avatar button add ion-popover -->
-    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
-      <ion-avatar>
-        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
-      </ion-avatar>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
+<ion-header></ion-header>
 
 <ion-content fullscreen="true">
   <div class="stopwatch">
     <ion-grid>
       <!-- timer -->
-      <ion-row class="timer-btn">
-        <ion-col size="10" offset="1" *ngIf="!running ">
-          <ion-button (click)="start()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'start timer' | translate }}</ion-button>
-        </ion-col>
-        <ion-col size="10" offset="1" *ngIf="running">
-          <ion-button (click)="stop()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'stop timer' | translate }}</ion-button>
+      <ion-row>
+        <ion-col >         
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col class="edit-btn" size="2">
-          <ion-button class="wrench" shape="circle" fill="clear" color="dark" icon-only>
-            <ion-avatar>
-              <ion-icon name="build-outline" size="large"></ion-icon>
-            </ion-avatar>
-          </ion-button>
-        </ion-col>
-        <ion-col size="7">
+      <ion-row class="timer-row">
+        <ion-col offset="2" size="7">
           <h1 class="timer">
             {{time}}
           </h1>
@@ -45,13 +18,26 @@
           <ion-button (click)="reset()" color="light" fill="outline" class="reset-btn" expand="block" size="small">{{ 'reset' | translate }}</ion-button>
         </ion-col>
       </ion-row>
+    
       <!-- start/stop timer button -->
-
-
-    </ion-grid>
-   
+      <ion-row class="timer-btn">
+        <ion-col class="edit-btn" size="2" offset="1">
+          <ion-button class="wrench" shape="circle" color="light" icon-only (click)="navigate()">
+            <ion-avatar color="bic">
+              <ion-icon name="build" color="bic"></ion-icon>
+            </ion-avatar>
+          </ion-button>
+        </ion-col>
+        <ion-col class="start-stop" size="8" offset="1" *ngIf="!running ">
+          <ion-button (click)="start()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'start timer' | translate }}</ion-button>
+        </ion-col>
+        <ion-col class="start-stop" size="8" offset="1"  *ngIf="running">
+          <ion-button (click)="stop()" color="light" fill="outline" class="footer-btn" expand="block" size="small">{{ 'stop timer' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
   </div>
-<!-- Need to create a housing div for added workouts that will infinitely scroll -->
+      
   <div>
     <!-- ** edit card to be proper shape -->
     <ion-card size="full">
@@ -68,12 +54,5 @@
 
       </ion-card-content>
     </ion-card>
-
   </div>
-  <ion-infinite-scroll threshold="150px">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data…">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 </ion-content>

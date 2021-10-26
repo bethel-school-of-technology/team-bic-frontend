@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ValueAccessor } from '@ionic/angular/directives/control-value-accessors/value-accessor';
 import { stringify } from 'querystring';
@@ -19,10 +20,10 @@ export class CreateRoutinePage implements OnInit {
   routineWorkouts: RoutineWorkout[] = [];
   sets = [2, 3, 4];
   reps = [4, 6, 8, 10, 12, 16, 20];
-  copy: any[];
-  selectedSet = null;
+  selectedSet: RoutineWorkout["sets"] = null;
+  newRoutineWorkout: RoutineWorkout = new RoutineWorkout();
   
-  constructor(public modalCtrl: ModalController, private workoutService: WorkoutServiceService) {
+  constructor(public modalCtrl: ModalController, private workoutService: WorkoutServiceService,  public router: Router) {
     
    }
   
@@ -30,7 +31,7 @@ export class CreateRoutinePage implements OnInit {
   }
 
   async initModal() {
-
+    this.workoutService.sendRoutineWorkout(this.routineWorkouts);
 
     const modal = await this.modalCtrl.create({
       component: ModalPage,
@@ -50,12 +51,12 @@ export class CreateRoutinePage implements OnInit {
   private _subscription: Subscription;
 
  ionViewWillEnter(): void{
-   this._subscription = this.workoutService.getMessage().subscribe((bWorkout:Workout[]) => {
+   this._subscription = this.workoutService.getWorkouts().subscribe((bWorkout:Workout[]) => {
      this._receivedWorkouts = bWorkout;
    });
    console.log(this._receivedWorkouts);
 
-  this.receivedWorkouts.map(item => {
+  this._receivedWorkouts.map(item => {
     return {
         id: item.id,
         name: item.name,
@@ -63,21 +64,26 @@ export class CreateRoutinePage implements OnInit {
         reps: 0
     }}).forEach(item => this.routineWorkouts.push(item));
    console.log(this.routineWorkouts);
-   
  }
+ uncheckAll(){
+  this.routineWorkouts = [];
+  console.log(this.routineWorkouts);
+}
+trackByFn(index, item) {
+  return index;
+}
 
- compareWith(item) {
+ changeSet(i) {
+   
 }
  consoleArray(){
   console.log(this.routineWorkouts);
-  console.log(this.selectedSet)
+  console.log(this.selectedSet);
+  console.log(this.newRoutineWorkout);
  }
 
  ionViewWillLeave(): void {
   this._subscription.unsubscribe();
 }
- 
-  public get receivedWorkouts():Workout[]{
-    return this._receivedWorkouts;
-  }
+
 }

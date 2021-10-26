@@ -1,0 +1,131 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "Bench Press",
+      "muscle": "chest"
+    },
+    {
+      "id": 2,
+      "name": "Incline Bench Press",
+      "muscle": "chest"
+    },
+    {
+      "id": 3,
+      "name": "Dumbbell Squeeze Press",
+      "muscle": "chest"
+    },
+    {
+      "id": 4,
+      "name": "Flys",
+      "muscle": "chest"
+    },
+    {
+      "id": 5,
+      "name": "Bench Dips",
+      "muscle": "tricep"
+    },
+    {
+      "id": 6,
+      "name": "Skullcrushers",
+      "muscle": "tricep"
+    },
+    {
+      "id": 7,
+      "name": "Tricep Extensions",
+      "muscle": "tricep"
+    },
+    {
+      "id": 8,
+      "name": "Rope Pulldowns",
+      "muscle": "tricep"
+    },
+    {
+      "id": 9,
+      "name": "Dumbbell Curls",
+      "muscle": "bicep"
+    },
+    {
+      "id": 10,
+      "name": "Hammer Curls",
+      "muscle": "bicep"
+    },
+    {
+      "id": 11,
+      "name": "Zottman Curls",
+      "muscle": "bicep"
+    },
+    {
+      "id": 12,
+      "name": "Concentration Curls",
+      "muscle": "bicep"
+    },
+    {
+      "id": 13,
+      "name": "Military Press",
+      "muscle": "shoulder"
+    },
+    {
+      "id": 14,
+      "name": "Shrugs",
+      "muscle": "shoulder"
+    },
+    {
+      "id": 15,
+      "name": "Kettlebell Swings",
+      "muscle": "leg"
+    },
+    {
+      "id": 16,
+      "name": "Squats",
+      "muscle": "leg"
+    },
+    {
+      "id": 17,
+      "name": "Jump Squats",
+      "muscle": "leg"
+    },
+    {
+      "id": 18,
+      "name": "Calf Raises",
+      "muscle": "leg"
+    },
+    {
+      "id": 19,
+      "name": "Standing Tripod Rows",
+      "muscle": "back"
+    },
+    {
+      "id": 20,
+      "name": "Plank Marches",
+      "muscle": "abs"
+    },
+    {
+      "id": 21,
+      "name": "Figure 8's",
+      "muscle": "abs"
+    },
+    {
+      "id": 22,
+      "name": "Flutter Kicks",
+      "muscle": "abs"
+    }
+  ],
+  "routines": [
+    {
+      "id": 1,
+      "name": "Light Chest",
+      "detail": "Chest-Hypertrophic-Barbell/Dumbbell",
+      "musclegroup": "chest"
+    },
+    {
+      "id": 2,
+      "name": "Heavy Arms",
+      "detail": "Bicep/Tricep-Hypertrophic-Barbell/Dumbbell",
+      "musclegroup": "arms"
+    },
+    {
+      "id": 3
+    }
+  ]
+}

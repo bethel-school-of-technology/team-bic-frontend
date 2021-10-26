@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
     public router: Router,
     public menuCtrl: MenuController) {
       this.signinForm = this.fb.group({
-        email: [''],
+        username: [''],
         password: ['']
       },
       )
