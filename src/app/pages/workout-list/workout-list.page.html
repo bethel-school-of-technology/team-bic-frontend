@@ -30,8 +30,8 @@
           <ion-list *ngFor="let workout of workoutList | filter:filterTerm | orderBy:'asc':'muscle';" class="workout-list" >
       
             <ion-item>
-              <ion-label>{{workout.name}}</ion-label>
-              <ion-note>{{workout.muscle}}</ion-note>
+              <ion-label>{{workout.workout_name}}</ion-label>
+              <ion-note>{{workout.muscle_group}}</ion-note>
               <ion-checkbox slot="end" color="bic" [(ngModel)]="workout.isSelected" (ionChange)="onChange(workout)"></ion-checkbox>
             </ion-item>
       

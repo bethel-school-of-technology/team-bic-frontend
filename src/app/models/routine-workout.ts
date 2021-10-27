@@ -1,6 +1,6 @@
 export class RoutineWorkout {
-    id: number;
-    name: string;
+    routineWorkout_id: number;
+    routineWorkout_name: string;
     sets: number;
     reps: number;
 }

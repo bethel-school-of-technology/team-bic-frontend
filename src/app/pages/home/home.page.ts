@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   routineList: Routine[] = [];
   selectedCard = null;
   
+  
 
   constructor(private http: HttpClient, private routineService: RoutineServiceService, public alertController: AlertController, public router: Router){//public authService: AuthService,
   //   private actRoute: ActivatedRoute
@@ -40,7 +41,7 @@ export class HomePage implements OnInit {
 
   onClickCard(id){
     this.selectedCard = id;
-    this.router.navigate(["/v-routine" + "/" + id])
+    this.router.navigate(["/v-routine/" + id])
     };
 
     async deleteAlert(id:number) {
@@ -60,7 +61,9 @@ export class HomePage implements OnInit {
             {
               text: 'Delete',
               handler:() => {
-                this.routineService.deleteRoutine(id).subscribe();
+                this.routineService.deleteRoutine(id).subscribe((res)=> {
+                  window.location.reload();
+                });
                 this.routineService.getRoutineList().subscribe(routineList => {
                   
                 })

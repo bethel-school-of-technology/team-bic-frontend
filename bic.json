@@ -1,130 +1,133 @@
 {
   "workouts": [
     {
-      "id": 1,
-      "name": "Bench Press",
-      "muscle": "chest"
+      "workout_id": 1,
+      "workout_name": "Bench Press",
+      "muscle_group": "chest"
     },
     {
-      "id": 2,
-      "name": "Incline Bench Press",
-      "muscle": "chest"
+      "workout_id": 2,
+      "workout_name": "Incline Bench Press",
+      "muscle_group": "chest"
     },
     {
-      "id": 3,
-      "name": "Dumbbell Squeeze Press",
-      "muscle": "chest"
+      "workout_id": 3,
+      "workout_name": "Dumbbell Squeeze Press",
+      "muscle_group": "chest"
     },
     {
-      "id": 4,
-      "name": "Flys",
-      "muscle": "chest"
+      "workout_id": 4,
+      "workout_name": "Flys",
+      "muscle_group": "chest"
     },
     {
-      "id": 5,
-      "name": "Bench Dips",
-      "muscle": "tricep"
+      "workout_id": 5,
+      "workout_name": "Bench Dips",
+      "muscle_group": "tricep"
     },
     {
-      "id": 6,
-      "name": "Skullcrushers",
-      "muscle": "tricep"
+      "workout_id": 6,
+      "workout_name": "Skullcrushers",
+      "muscle_group": "tricep"
     },
     {
-      "id": 7,
-      "name": "Tricep Extensions",
-      "muscle": "tricep"
+      "workout_id": 7,
+      "workout_name": "Tricep Extensions",
+      "muscle_group": "tricep"
     },
     {
-      "id": 8,
-      "name": "Rope Pulldowns",
-      "muscle": "tricep"
+      "workout_id": 8,
+      "workout_name": "Rope Pulldowns",
+      "muscle_group": "tricep"
     },
     {
-      "id": 9,
-      "name": "Dumbbell Curls",
-      "muscle": "bicep"
+      "workout_id": 9,
+      "workout_name": "Dumbbell Curls",
+      "muscle_group": "bicep"
     },
     {
-      "id": 10,
-      "name": "Hammer Curls",
-      "muscle": "bicep"
+      "workout_id": 10,
+      "workout_name": "Hammer Curls",
+      "muscle_group": "bicep"
     },
     {
-      "id": 11,
-      "name": "Zottman Curls",
-      "muscle": "bicep"
+      "workout_id": 11,
+      "workout_name": "Zottman Curls",
+      "muscle_group": "bicep"
     },
     {
-      "id": 12,
-      "name": "Concentration Curls",
-      "muscle": "bicep"
+      "workout_id": 12,
+      "workout_name": "Concentration Curls",
+      "muscle_group": "bicep"
     },
     {
-      "id": 13,
-      "name": "Military Press",
-      "muscle": "shoulder"
+      "workout_id": 13,
+      "workout_name": "Military Press",
+      "muscle_group": "shoulder"
     },
     {
-      "id": 14,
-      "name": "Shrugs",
-      "muscle": "shoulder"
+      "workout_id": 14,
+      "workout_name": "Shrugs",
+      "muscle_group": "shoulder"
     },
     {
-      "id": 15,
-      "name": "Kettlebell Swings",
-      "muscle": "leg"
+      "workout_id": 15,
+      "workout_name": "Kettlebell Swings",
+      "muscle_group": "leg"
     },
     {
-      "id": 16,
-      "name": "Squats",
-      "muscle": "leg"
+      "workout_id": 16,
+      "workout_name": "Squats",
+      "muscle_group": "leg"
     },
     {
-      "id": 17,
-      "name": "Jump Squats",
-      "muscle": "leg"
+      "workout_id": 17,
+      "workout_name": "Jump Squats",
+      "muscle_group": "leg"
     },
     {
-      "id": 18,
-      "name": "Calf Raises",
-      "muscle": "leg"
+      "workout_id": 18,
+      "workout_name": "Calf Raises",
+      "muscle_group": "leg"
     },
     {
-      "id": 19,
-      "name": "Standing Tripod Rows",
-      "muscle": "back"
+      "workout_id": 19,
+      "workout_name": "Standing Tripod Rows",
+      "muscle_group": "back"
     },
     {
-      "id": 20,
-      "name": "Plank Marches",
-      "muscle": "abs"
+      "workout_id": 20,
+      "workout_name": "Plank Marches",
+      "muscle_group": "abs"
     },
     {
-      "id": 21,
-      "name": "Figure 8's",
-      "muscle": "abs"
+      "workout_id": 21,
+      "workout_name": "Figure 8's",
+      "muscle_group": "abs"
     },
     {
-      "id": 22,
-      "name": "Flutter Kicks",
-      "muscle": "abs"
+      "workout_id": 22,
+      "workout_name": "Flutter Kicks",
+      "muscle_group": "abs"
     }
   ],
   "routines": [
     {
       "id": 1,
-      "name": "Light Chest",
-      "detail": "Chest-Hypertrophic-Barbell/Dumbbell",
-      "musclegroup": "chest"
+      "routine_name": "Light Chest",
+      "subtitle": "Chest-Hypertrophic-Barbell/Dumbbell",
+      "muscle_group": "chest"
     },
     {
       "id": 2,
-      "name": "Heavy Arms",
-      "detail": "Bicep/Tricep-Hypertrophic-Barbell/Dumbbell",
-      "musclegroup": "arms"
+      "routine_name": "Heavy Arms",
+      "subtitle": "Bicep/Tricep-Hypertrophic-Barbell/Dumbbell",
+      "muscle_group": "arms"
     },
     {
+      "routine_name": "Chest Maintenance",
+      "muscle_group": "chest",
+      "subtitle": "Simple chest maintenance with dumbbells.",
       "id": 3
     }
   ]

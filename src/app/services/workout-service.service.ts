@@ -1,21 +1,26 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { RoutineWorkout } from '../models/routine-workout';
 import { Workout } from '../models/workout';
+import { AuthService } from '../shared/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorkoutServiceService {
 
-  baseUrl = 'http://localhost:3000/workouts';
+  baseUrl = 'http://localhost:8080/getWorkouts';
   
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
   
   getWorkoutList(): Observable<Workout[]> {
-    return this.http.get<Workout[]>(this.baseUrl);
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append("Authorization", this.authService.getToken());
+    console.log(headers);
+    return this.http.get<Workout[]>(this.baseUrl, { headers: headers });
+    
 }
 getWorkout(Id: number):  Observable<Workout> {
   return this.http.get<Workout>(this.baseUrl + Id)
@@ -49,14 +54,8 @@ public selectedRoutineWorkout: RoutineWorkout[]= [];
       console.log(this._subject);
         return this._subject.asObservable();
     }
-}
 
-// public selectedWorkouts:Workout[]= [];
- 
-//     addWorkout(item: Workout) {
-//         this.selectedWorkouts.push(item);
-//     }
- 
-//     getItems(): Workout[] {
-//         return this.selectedWorkouts;
-//     }
+    stopGettingWorkouts() {
+      this._subject = new BehaviorSubject([]);
+    }
+}

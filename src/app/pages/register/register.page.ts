@@ -25,12 +25,8 @@ export class RegisterPage implements OnInit {
   }
   
   registerUser() {
-    this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      if (res.result) {
-        this.signupForm.reset()
-        this.router.navigate(['log-in']);
+    this.authService.signUp(this.signupForm.value);
+        this.router.navigate(['/login']);
       }
-    })
-  }
 
 }

@@ -21,7 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'home',
+    path: 'home', canActivate: [AuthGuard],
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
   },
   {
-    path: 'c-routine', // canActivate: [AuthGuard],
+    path: 'c-routine', canActivate: [AuthGuard],
     loadChildren: () => import('./pages/create-routine/create-routine.module').then( m => m.CreateRoutinePageModule)
   },
   {

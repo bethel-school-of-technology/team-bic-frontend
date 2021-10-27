@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, from, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import {Storage} from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +14,17 @@ import { User } from '../models/user';
 
 export class AuthService {
   endpoint: string = 'http://localhost:8080';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-  currentUser = {};
+  error: string;
+  token: string = '';
+  data: any;
+  user: User = new User();
+  private _subject = new BehaviorSubject(null);
 
+  
   constructor(
     private http: HttpClient,
-    public router: Router
+    public router: Router,
+    private readonly storage: Storage
   ) {
   }
 
@@ -29,21 +36,28 @@ export class AuthService {
         catchError(this.handleError)
       )
   }
+  onLogin(user: User) {
+    return this.http.post(this.endpoint + '/login', { username: user.username, password: user.password }, { observe: 'response' })
+    .subscribe(res => {
+        this.token = res.headers.get("Authorization");
+        localStorage.setItem('access_token', this.token);
+        localStorage.setItem('current_user', user.username);
+        this.user.username = user.username;
+        console.log(this.user.username);
+        this.router.navigateByUrl('/home');
+    },
+      error => this.error = "Unable to login with username and password."
+    );
+    
+  }
 
-  // Sign-in
-  signIn(user: User) {
-    return this.http.post<any>(`${this.endpoint}/login`, user)
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.headers.get("Authorization"))
-        this.getUserProfile(res._id).subscribe((res) => {
-          this.currentUser = res;
-          this.router.navigate(['user-profile/' + res.msg._id]);
-        })
-      })
+  getUsername() {
+    return localStorage.getItem('current_user');
   }
 
   getToken() {
     return localStorage.getItem('access_token');
+    
   }
 
   get isLoggedIn(): boolean {
@@ -52,21 +66,21 @@ export class AuthService {
   }
 
   doLogout() {
+    localStorage.removeItem('current_user');
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['log-in']);
+      this.router.navigate(['/login']);
     }
   }
 
-  // User profile
-  getUserProfile(id): Observable<any> {
-    let api = `${this.endpoint}/user-profile/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.handleError)
-    )
+  
+  getUserRoutines() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append("Authorization", this.token);
+    this.http.get(this.endpoint + "/routines", { headers: headers })
+      .subscribe(res => this.data = res, error => this.error = "Unable to retrieve data.");
+      this.http.get(this.endpoint + "/getWorkouts", { headers: headers })
+      .subscribe(res => this.data = res, error => this.error = "Unable to retrieve data.");
   }
 
   // Error 

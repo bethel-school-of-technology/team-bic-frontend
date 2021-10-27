@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
@@ -14,12 +15,19 @@ import { WorkoutServiceService } from 'src/app/services/workout-service.service'
 })
 export class ModalPage implements OnInit {
 
+  routineForm: FormGroup;
   private receivedWorkouts: RoutineWorkout[] = [];
   private _subscription: Subscription;
   newRoutine: Routine = new Routine();
 
 
-  constructor(private modalCtrl: ModalController, private workoutService: WorkoutServiceService, private routineService: RoutineServiceService, private router: Router) { }
+  constructor(private modalCtrl: ModalController, private workoutService: WorkoutServiceService, private routineService: RoutineServiceService, private router: Router, public fb: FormBuilder,)
+    {this.routineForm = this.fb.group({
+      routine_name: [''],
+      subtitle: [''],
+      muscle_group: ['']
+     })
+   }
 
  
 
@@ -44,9 +52,12 @@ export class ModalPage implements OnInit {
     console.log('Segment changed', ev);
   }
 
+  consoleArray(){
+    console.log(this.newRoutine);
+
+   }
   // routine creation
   createRoutine(){
-    console.log(this.newRoutine);
     this.routineService.createRoutine(this.newRoutine).subscribe(response => {
       console.log(response);
       this.router.navigate(["/home"]);
