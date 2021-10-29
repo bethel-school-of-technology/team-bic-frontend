@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActionSheetController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core'
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent {
   ];
 
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(public authService: AuthService, private router: Router) {}
+
+  username: any;
+
+  constructor(public authService: AuthService, private router: Router, public actionCtrl: ActionSheetController) {}
 
   logout() {
     this.authService.doLogout()
@@ -26,5 +30,30 @@ export class AppComponent {
   }
   isRegisterRoute() {
     return this.router.url.includes("/register");
+  }
+  async presentActionSheet() {
+    this.username = this.authService.getUsername();
+    const actionSheet = await this.actionCtrl.create({
+      header: 'Are you done fighting for today,' + ' ' + this.username + '?',
+      cssClass: 'action-css',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Yes! Logout.',
+          role: 'destructive',
+          icon: 'log-out',
+          handler: () =>{this.logout()}
+        }, 
+        {
+          text: "No way, I'm still not sore!",
+          icon: 'close',
+          role: 'cancel'
+        }
+      ],
+      animated: true,
+      backdropDismiss: true,
+      keyboardClose: false
+    });
+    actionSheet.present();
   }
 }

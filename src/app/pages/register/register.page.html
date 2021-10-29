@@ -8,11 +8,12 @@
         <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
         <ion-item >
           <ion-label position="floating"  >Username</ion-label>
-          <ion-input type="test" required class="form-control" formControlName="username"></ion-input>
+          <ion-input type="test" required class="form-control" formControlName="username" ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" class="form-control" formControlName="email"required></ion-input>
+          <ion-input type="email" class="form-control" formControlName="email" required></ion-input>
+          
         </ion-item>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
@@ -22,7 +23,7 @@
           <ion-label position="floating">Confirm Password</ion-label>
           <ion-input type="password" required></ion-input>
         </ion-item>
-        <ion-button type="submit" color="bic" size="block">Register</ion-button>
+        <ion-button type="submit" color="bic" size="block" [disabled]="username === '' || email === '' || password === ''">Register</ion-button>
       </form>
       </ion-card-content>
     

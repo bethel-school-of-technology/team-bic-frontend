@@ -18,12 +18,11 @@ export class WorkoutListPage implements OnInit {
   workout = new Workout;
   filterTerm: string;
   masterCheck:boolean;
+  workoutList: Workout[] = [];
 
   constructor(private http: HttpClient, private workoutService: WorkoutServiceService, public router: Router) {
-    this.http.get('assets/bic.json').subscribe(res => {
-      this.bic = res['workouts'];
-    });
-  }
+
+   }
 
 // known bug: if searchbar is used while items are checked, they will still be stored as checkitems, but the checkboxes will uncheck
   onChange(item) {
@@ -47,4 +46,10 @@ export class WorkoutListPage implements OnInit {
 
   ngOnInit() {
   }
+  ionViewWillEnter(){
+    this.workoutService.getWorkoutList().subscribe(workoutList => {
+      this.workoutList = workoutList;
+      console.log(this.workoutList);
+  })
+}
 }

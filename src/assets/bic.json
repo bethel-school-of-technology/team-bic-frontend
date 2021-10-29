@@ -113,13 +113,13 @@
     ],
     "routines": [
         {
-            "id":1,
+            "routine_id":1,
             "name": "Light Chest",
             "detail": "Chest-Hypertrophic-Barbell/Dumbbell",
             "musclegroup":"chest"
         },
         {
-            "id":2,
+            "routine_id":2,
             "name": "Heavy Arms",
             "detail": "Bicep/Tricep-Hypertrophic-Barbell/Dumbbell",
             "musclegroup":"arms"

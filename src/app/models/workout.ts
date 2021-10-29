@@ -1,5 +1,5 @@
 export class Workout {
-    id: number;
-    name: string;
-    muscle: string;
+    workout_id: number;
+    workout_name: string;
+    muscle_group: string;
 }

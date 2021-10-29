@@ -21,23 +21,23 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'home',
+    path: 'home', canActivate: [AuthGuard],
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'workouts',
+    path: 'workouts/:routineId',
     loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
   },
   {
-    path: 'c-routine', // canActivate: [AuthGuard],
+    path: 'c-routine', canActivate: [AuthGuard],
     loadChildren: () => import('./pages/create-routine/create-routine.module').then( m => m.CreateRoutinePageModule)
   },
   {
-    path: 'v-routine',
+    path: 'v-routine/:routineId',
     loadChildren: () => import('./pages/view-routine/view-routine.module').then( m => m.ViewRoutinePageModule)
   },
   {
-    path: 'e-routine',
+    path: 'e-routine/:routineId',
     loadChildren: () => import('./pages/edit-routine/edit-routine.module').then( m => m.EditRoutinePageModule)
   },
   {

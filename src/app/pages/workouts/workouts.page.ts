@@ -1,5 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Routine } from 'src/app/models/routine';
+import { Workout } from 'src/app/models/workout';
+import { RoutineServiceService } from 'src/app/services/routine-service.service';
+import { WorkoutServiceService } from 'src/app/services/workout-service.service';
 
 @Component({
   selector: 'app-workouts',
@@ -10,24 +15,49 @@ export class WorkoutsPage implements OnInit {
 
   bic: any[];
   autoClose = false;
-  
-  constructor(private http: HttpClient) {
-    this.http.get('assets/bic.json').subscribe(res => {
-      this.bic = res['workouts'];
-    });
+  checkedItems: Workout[] = [];
+  workout = new Workout;
+  filterTerm: string;
+  masterCheck:boolean;
+  workoutList: Workout[] = [];
+  currentRoutine: Routine = new Routine();
+  routineId: number;
+
+  constructor(private http: HttpClient, private workoutService: WorkoutServiceService, public router: Router, private actRoute: ActivatedRoute, private routineService: RoutineServiceService) {
+
    }
 
-   toggleSection(index) {
-     this.bic[index].open = !this.bic[index].open;
-
-     if (this.autoClose && this.bic[index].open) {
-       this.bic.filter((workoutIndex) => workoutIndex != index).map(workout => workout.open = false);
-     }
-   }
-   toggleWorkout (index, childIndex) {
-     this.bic[index].children[childIndex].open = !this.bic[index].children[childIndex].open;
-   }
-  ngOnInit() {
+// known bug: if searchbar is used while items are checked, they will still be stored as checkitems, but the checkboxes will uncheck
+  onChange(item) {
+    if (this.checkedItems.includes(item)) {
+      this.checkedItems = this.checkedItems.filter((value) => value != item);
+    } else {
+      this.checkedItems.push(item)
+    }
+    console.log(this.checkedItems);
+  }
+  editRoutine() {
+    this.workoutService.sendWorkout(this.checkedItems);
+    this.router.navigateByUrl('/e-routine/' + this.routineId, { replaceUrl: true });
+    console.log(this.checkedItems);
+    console.log(this.workoutService.selectedWorkouts);
+  }
+  uncheckAll(){
+    this.bic.forEach(node => node.isSelected = false);
+    console.log(this.checkedItems);
   }
 
+  ngOnInit() {
+  }
+  async ionViewWillEnter(){
+    this.workoutService.getWorkoutList().subscribe(workoutList => {
+      this.workoutList = workoutList;
+      console.log(this.workoutList);
+  });
+  this.routineId = parseInt(this.actRoute.snapshot.paramMap.get("routineId"));
+    this.routineService.getRoutine(this.routineId).subscribe(response =>{
+      this.currentRoutine = response;
+      console.log(this.currentRoutine);
+    });
+}
 }

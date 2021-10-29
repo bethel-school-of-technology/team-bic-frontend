@@ -14,6 +14,8 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderByModule } from './shared/order-by.module';
 import { WorkoutServiceService } from './services/workout-service.service';
+import { Storage } from '@ionic/storage';
+import { AuthService } from './shared/services/auth.service';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { WorkoutServiceService } from './services/workout-service.service';
     }
   })
 ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, Storage, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
