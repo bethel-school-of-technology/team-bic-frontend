@@ -9,7 +9,7 @@
         </ion-col>
       </ion-row>
       <ion-row class="timer-row">
-        <ion-col offset="2" size="7">
+        <ion-col class="timer-col" offset="2" size="7">
           <h1 class="timer">
             {{time}}
           </h1>
@@ -24,7 +24,7 @@
         <ion-col class="edit-btn" size="2" offset="1">
           <ion-button class="wrench" shape="circle" color="light" icon-only (click)="navigate()">
             <ion-avatar color="bic">
-              <ion-icon name="build" color="bic"></ion-icon>
+              <ion-icon class="build" name="build" color="bic"></ion-icon>
             </ion-avatar>
           </ion-button>
         </ion-col>
@@ -39,19 +39,31 @@
   </div>
       
   <div>
-    <!-- ** edit card to be proper shape -->
     <ion-card size="full">
-      <ion-card-header>
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="../../assets/img/chest.png">
-          </ion-thumbnail>
-            <ion-card-title>Chest 1</ion-card-title>
-        </ion-item>
-        <ion-card-subtitle>Chest-Hypertrophic-Barbell/Dumbbell</ion-card-subtitle>
+      <ion-card-header class="no-list" *ngIf="receivedWorkouts.length === 0">   
+        <h3>No Workouts</h3>
+        <ion-icon name="sad"></ion-icon>
       </ion-card-header>
       <ion-card-content>
-
+        <ion-list *ngFor="let workout of receivedWorkouts;">
+          <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="workout-name">
+                <ion-label>{{ workout.routineWorkout_name }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div> {{ workout.sets }} sets</div>
+              </ion-col>
+              <ion-col>
+                <div> {{ workout.reps }} reps</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid> 
+        </ion-item>               
+        </ion-list>
       </ion-card-content>
     </ion-card>
   </div>

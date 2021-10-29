@@ -7,7 +7,7 @@
       <ion-card *ngFor="let routine of routineList" size="full"  [class.active]="selectedCard == 1">
         <ion-card-header>
           <ion-item>
-            <ion-thumbnail slot="start" (click)="onClickCard(routine.routine_id)">
+            <ion-thumbnail slot="start" (click)="onClickCard(routine.id)">
               <img *ngIf="routine.muscle_group === 'chest'" src="../../assets/img/chest.png">
               <img *ngIf="routine.muscle_group === 'arms'" src="../../assets/img/arms.png">
               <img *ngIf="routine.muscle_group === 'abs'" src="../../assets/img/abs.png">
@@ -15,10 +15,10 @@
               <img *ngIf="routine.muscle_group === 'back'" src="../../assets/img/back.png">
               <img *ngIf="routine.muscle_group === 'legs'" src="../../assets/img/leg.png">
             </ion-thumbnail>
-              <ion-card-title (click)="onClickCard(routine.routine_id)">{{routine.routine_name}}</ion-card-title>
+              <ion-card-title (click)="onClickCard(routine.id)">{{routine.routine_name}}</ion-card-title>
               <a slot="end"><ion-icon name="close-outline" size="large" color="bic" (click)="deleteAlert(routine.id)"></ion-icon></a>
           </ion-item>
-          <ion-card-subtitle (click)="onClickCard(routine.routine_id)">{{routine.subtitle}}</ion-card-subtitle>
+          <ion-card-subtitle (click)="onClickCard(routine.id)">{{routine.subtitle}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
         </ion-card-content>

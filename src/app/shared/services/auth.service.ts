@@ -19,6 +19,7 @@ export class AuthService {
   data: any;
   user: User = new User();
   private _subject = new BehaviorSubject(null);
+  userId: number;
 
   
   constructor(
@@ -34,7 +35,9 @@ export class AuthService {
     return this.http.post(api, user)
       .pipe(
         catchError(this.handleError)
+        
       )
+      
   }
   onLogin(user: User) {
     return this.http.post(this.endpoint + '/login', { username: user.username, password: user.password }, { observe: 'response' })
@@ -51,6 +54,18 @@ export class AuthService {
     
   }
 
+  setUserId() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append("Authorization", this.token);
+    this.http.get(this.endpoint + "/routines", { headers: headers })
+      .subscribe(res => this.data = res, error => this.error = "Unable to retrieve data.");
+
+  }
+  getUser(Id: number):  Observable<User> {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append("Authorization", this.token);
+    return this.http.get<User>(this.endpoint + Id, { headers: headers })
+  };
   getUsername() {
     return localStorage.getItem('current_user');
   }
@@ -72,6 +87,7 @@ export class AuthService {
       this.router.navigate(['/login']);
     }
   }
+
 
   
   getUserRoutines() {

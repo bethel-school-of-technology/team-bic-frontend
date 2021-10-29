@@ -1,18 +1,4 @@
 <ion-header>
-  <ion-toolbar>
-    <!-- menu button -->
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <!-- banner -->
-    <img id="banner" src="../../assets/img/fight-on.png">
-    <!-- avatar button add ion-popover -->
-    <ion-button slot="end" shape="circle" fill="clear" color="bic" icon-only>
-      <ion-avatar>
-        <ion-icon src="../../assets/custom-ion-icons/mob.svg" size="large"></ion-icon>
-      </ion-avatar>
-    </ion-button>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
@@ -27,7 +13,7 @@
           </ion-item>
         </ion-card-header>
          <ion-card-content>
-          <ion-list *ngFor="let workout of workoutList | filter:filterTerm | orderBy:'asc':'muscle';" class="workout-list" >
+          <ion-list *ngFor="let workout of workoutList | filter:filterTerm | orderBy:'asc':'muscle_group';" class="workout-list" >
       
             <ion-item>
               <ion-label>{{workout.workout_name}}</ion-label>

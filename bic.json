@@ -129,6 +129,42 @@
       "muscle_group": "chest",
       "subtitle": "Simple chest maintenance with dumbbells.",
       "id": 3
+    },
+    {
+      "muscle_group": "chest",
+      "routine_name": "Chest Day",
+      "subtitle": "LET'S GOOOOOO",
+      "id": 4
+    },
+    {
+      "muscle_group": "chest",
+      "routine_name": "Chest and Tri's",
+      "subtitle": "Standard Chest and Tricep workout",
+      "id": 5
+    },
+    {
+      "muscle_group": "chest",
+      "routine_name": "a",
+      "subtitle": "b",
+      "id": 6
+    },
+    {
+      "routine_name": "as",
+      "subtitle": "sa",
+      "muscle_group": "chest",
+      "id": 7
+    },
+    {
+      "subtitle": "a",
+      "routine_name": "a",
+      "muscle_group": "arms",
+      "id": 8
+    },
+    {
+      "muscle_group": "arms",
+      "routine_name": "s",
+      "subtitle": "s",
+      "id": 9
     }
   ]
 }

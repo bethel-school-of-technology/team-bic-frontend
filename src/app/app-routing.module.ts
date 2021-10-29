@@ -25,7 +25,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'workouts',
+    path: 'workouts/:routineId',
     loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
   },
   {

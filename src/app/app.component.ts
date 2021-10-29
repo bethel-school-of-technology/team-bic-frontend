@@ -32,12 +32,7 @@ export class AppComponent {
     return this.router.url.includes("/register");
   }
   async presentActionSheet() {
-    this.authService.userInfo.subscribe(user => {
-      alert(user)
-      if(user){
-        this.username = user.username;
-      }
-    })
+    this.username = this.authService.getUsername();
     const actionSheet = await this.actionCtrl.create({
       header: 'Are you done fighting for today,' + ' ' + this.username + '?',
       cssClass: 'action-css',

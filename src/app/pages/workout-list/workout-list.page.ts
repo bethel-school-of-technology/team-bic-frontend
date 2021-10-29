@@ -21,9 +21,7 @@ export class WorkoutListPage implements OnInit {
   workoutList: Workout[] = [];
 
   constructor(private http: HttpClient, private workoutService: WorkoutServiceService, public router: Router) {
-  //   this.http.get('bic.json').subscribe(res => {
-  //     this.bic = res['workouts'];
-  //   });
+
    }
 
 // known bug: if searchbar is used while items are checked, they will still be stored as checkitems, but the checkboxes will uncheck

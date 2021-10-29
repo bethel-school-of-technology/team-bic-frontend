@@ -10,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class WorkoutServiceService {
 
-  baseUrl = 'http://localhost:8080/getWorkouts';
+  baseUrl = 'http://localhost:8080';
   
 
   constructor(private http: HttpClient, private authService: AuthService) { }
@@ -19,7 +19,7 @@ export class WorkoutServiceService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append("Authorization", this.authService.getToken());
     console.log(headers);
-    return this.http.get<Workout[]>(this.baseUrl, { headers: headers });
+    return this.http.get<Workout[]>(this.baseUrl + '/getWorkouts', { headers: headers });
     
 }
 getWorkout(Id: number):  Observable<Workout> {

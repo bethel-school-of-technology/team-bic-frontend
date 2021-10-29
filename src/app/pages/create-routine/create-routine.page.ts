@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { ModalController } from '@ionic/angular';
 // import { ValueAccessor } from '@ionic/angular/directives/control-value-accessors/value-accessor';
 // import { stringify } from 'querystring';
@@ -9,6 +9,8 @@ import { RoutineWorkout } from 'src/app/models/routine-workout';
 import { Workout } from 'src/app/models/workout';
 import { RoutineServiceService } from 'src/app/services/routine-service.service';
 import { WorkoutServiceService } from 'src/app/services/workout-service.service';
+import { User } from 'src/app/shared/models/user';
+import { AuthService } from 'src/app/shared/services/auth.service';
 // import { ModalPage } from '../modal/modal.page';
 
 @Component({
@@ -27,9 +29,10 @@ export class CreateRoutinePage implements OnInit {
   newRoutine: Routine = new Routine();
   private _receivedWorkouts: Workout[] = [];
   private _subscription: Subscription;
+  userId: number;
 
   
-  constructor( private workoutService: WorkoutServiceService, private routineService: RoutineServiceService,  public router: Router,
+  constructor( private workoutService: WorkoutServiceService, private routineService: RoutineServiceService,  public router: Router, private actRoute: ActivatedRoute, private authService: AuthService
     // public modalCtrl: ModalController,
     ) {
     
@@ -52,6 +55,9 @@ export class CreateRoutinePage implements OnInit {
         reps: 0
     }}).forEach(item => this.routineWorkouts.push(item));
    console.log(this.routineWorkouts);
+   this.userId = this.authService.userId;
+   console.log(this.userId);
+
  }
  uncheckAll(){
   this.routineWorkouts = [];
@@ -63,6 +69,7 @@ trackByFn(index, item) {
 createRoutine(){
   this.routineService.createRoutine(this.newRoutine).subscribe(response => {
     console.log(response);
+    this.workoutService.sendRoutineWorkout(this.routineWorkouts);
     this.router.navigate(["/home"]);
   })
 }
@@ -74,8 +81,8 @@ createRoutine(){
 
  ionViewWillLeave(): void {
   this._subscription.unsubscribe();
-  this.workoutService.stopGettingWorkouts();
   this.routineWorkouts = [];
+  
 }
 
 // async initModal() {

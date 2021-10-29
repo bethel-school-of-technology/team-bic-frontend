@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class LoginPage implements OnInit {
   signinForm: FormGroup;
-  user: User = new User()
+  user: User = new User();
   token: string;
 
   constructor(public fb: FormBuilder, public authService: AuthService, public router: Router) {
@@ -29,8 +29,13 @@ export class LoginPage implements OnInit {
     console.log(this.token);
   }
 
+  sendUserId(id) {
+    this.authService.userId = id;
+ }
+
   loginUser() {
     this.authService.onLogin(this.user);
+    this.sendUserId(this.user.user_id);
     
     
   }

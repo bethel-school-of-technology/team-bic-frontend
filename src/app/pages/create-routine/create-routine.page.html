@@ -35,6 +35,16 @@
               <ion-select-option *ngFor="let rep of reps" [value]="rep">{{rep}} reps</ion-select-option>
             </ion-select>
           </ion-item>
+          <ion-grid>
+            <ion-row lines="none" class="warning-notes">
+              <ion-col>
+                <ion-note color="danger" *ngIf="routineWorkouts[i].sets === 0">Please select Sets!</ion-note>
+              </ion-col>
+              <ion-col>
+                <ion-note color="danger" *ngIf="routineWorkouts[i].reps === 0">Please select Reps!</ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-list>
       </ion-card-content>
     </ion-card>
